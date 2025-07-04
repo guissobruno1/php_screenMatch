@@ -1,6 +1,6 @@
 <?php
 
-function exibeMensagemLancamento($ano) {
+function exibeMensagemLancamento(int $ano) {
     if ($ano > 2022) {
         echo "Esse filme é um lançamento\n";
     } elseif($ano > 2020 && $ano <= 2022) {
@@ -10,8 +10,8 @@ function exibeMensagemLancamento($ano) {
     }
 }
 
-function incluidoNoPlano() {
-    $planoPrime || $anoLancamento < 2020;
+function incluidoNoPlano(bool $planoPrime, int $incluidoNoPlano) {
+    return $planoPrime || $anoLancamento < 2020;
 }
 
 echo "Bem-vindo(a) ao screen match!\n";
@@ -30,7 +30,7 @@ for ($contador = 1; $contador < $argc; $contador++) {
 $notaFilme = array_sum($notas) / $quantidadeDeNotas;
 $planoPrime = true;
 
-$incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
+$incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento);
 
 echo "Nome do filme: " . $nomeFilme . "\n";
 echo "Nota do filme: $notaFilme\n";
