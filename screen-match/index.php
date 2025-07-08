@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . "/src/Model/Filme.php";
 require __DIR__ . "/src/functions.php";
 
 echo "Bem-vindo(a) ao screen match!\n";
@@ -42,17 +43,17 @@ $filme = criaFilme(
     genero: "super-herói",
 );
 
-echo $filme["ano"];
+echo $filme->anoLancamento;
 
-var_dump($filme["nome"]);
+var_dump($filme->nome);
 
 sort($notas);
 
-$posicaoDoisPontos = strpos($filme["nome"], ":");
+$posicaoDoisPontos = strpos($filme->nome, ":");
 
 var_dump($posicaoDoisPontos);
 
-var_dump(substr($filme["nome"], 0, $posicaoDoisPontos));
+var_dump(substr($filme->nome, 0, $posicaoDoisPontos));
 
 $filmeComoStingJson = json_encode($filme);
 file_put_contents(__DIR__ . "/filme.json", $filmeComoStingJson);
