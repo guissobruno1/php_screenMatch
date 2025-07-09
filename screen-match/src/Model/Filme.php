@@ -1,10 +1,16 @@
 <?php
 
 class Filme {
-    private string $nome;
-    private int $anoLancamento;
-    private string $genero;
-    private array $notas = [];
+
+    private array $notas;
+
+    public function __construct(
+        public readonly string $nome,
+        public readonly int $anoLancamento,
+        public readonly Genero $genero
+    ) {
+        $this->notas = [];
+    }
 
     public function avalia(float $nota): void {
         $this->notas[] = $nota;
@@ -16,4 +22,5 @@ class Filme {
 
         return $somaNotas / $quantidadeNotas;
     }
+
 }
