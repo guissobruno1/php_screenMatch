@@ -1,14 +1,15 @@
 <?php
 
-class Filme {
-
+class Serie{
     private array $notas;
 
     public function __construct(
         public readonly string $nome,
         public readonly int $anoLancamento,
         public readonly Genero $genero,
-        public readonly int $duracaoEmMinutos;
+        public readonly int $numeroTemporadas,
+        public readonly int $epPorTemporada,
+        public readonly int $minutosPorEp,
     ) {
         $this->notas = [];
     }
@@ -23,5 +24,6 @@ class Filme {
 
         return $somaNotas / $quantidadeNotas;
     }
+
 
 }

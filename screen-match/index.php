@@ -9,6 +9,7 @@ $filme = new Filme(
     "Carros",
     2006,
     Genero::SuperHeroi,
+    180
 );
 
 $filme->avalia(7.8);
