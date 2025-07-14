@@ -1,29 +1,19 @@
 <?php
 
-class Serie{
-    private array $notas;
+class Serie extends Titulo{
 
     public function __construct(
-        public readonly string $nome,
-        public readonly int $anoLancamento,
-        public readonly Genero $genero,
+        string $nome,
+        int $anoLancamento,
+        Genero $genero,
         public readonly int $numeroTemporadas,
         public readonly int $epPorTemporada,
         public readonly int $minutosPorEp,
     ) {
-        $this->notas = [];
+        parent::__construct($nome, $anoLancamento, $genero);
     }
 
-    public function avalia(float $nota): void {
-        $this->notas[] = $nota;
+    public function DuracaoEmMinutos(): int {
+        return $this->numeroTemporadas * $this->epPorTemporada * $this->minutosPorEp;
     }
-
-    public function media(): float {
-        $somaNotas = array_sum($this->notas);
-        $quantidadeNotas = count($this->notas);
-
-        return $somaNotas / $quantidadeNotas;
-    }
-
-
 }

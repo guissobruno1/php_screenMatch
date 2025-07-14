@@ -1,6 +1,6 @@
 <?php
 
-class Titulo {
+abstract class Titulo {
     private array $notas;
 
     public function __construct(
@@ -21,4 +21,6 @@ class Titulo {
 
         return $somaNotas / $quantidadeNotas;
     }
+
+    abstract public function DuracaoEmMinutos(): int;
 }
