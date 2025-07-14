@@ -33,6 +33,8 @@ $serie = new Serie(
     45,
 );
 
+$episodio = new Episodio();
+
 var_dump($serie) . "\n";
 
 echo $serie->anoLancamento . "\n";
