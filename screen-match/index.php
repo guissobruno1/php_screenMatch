@@ -1,10 +1,14 @@
 <?php
 
+require __DIR__ . "/src/Model/ComAvaliacao.php";
+require __DIR__ . "/src/Model/Avaliavel.php";
+require __DIR__ . "/src/Model/Episodio.php";
 require __DIR__ . "/src/Model/Genero.php";
 require __DIR__ . "/src/Model/Titulo.php";
 require __DIR__ . "/src/Model/Serie.php";
 require __DIR__ . "/src/Model/Filme.php";
 require __DIR__ . "/src/Calculadora/CalculadoraDeMaratona.php";
+require __DIR__ . "/src/Calculadora/ConversorNotaEstrela.php";
 
 echo "Bem vindo(a) ao Screen Match!\n";
 
@@ -14,14 +18,11 @@ $filme = new Filme(
     Genero::SuperHeroi,
     180
 );
-
 $filme->avalia(7.8);
 $filme->avalia(8.0);
 $filme->avalia(9.0);
 $filme->avalia(6.5);
-
 var_dump($filme); 
-
 echo $filme->anoLancamento . "\n";
 
 $serie = new Serie(
@@ -32,15 +33,17 @@ $serie = new Serie(
     20,
     45,
 );
-
-$episodio = new Episodio();
-
 var_dump($serie) . "\n";
-
 echo $serie->anoLancamento . "\n";
+$serie->avalia(8);
+
+$episodio = new Episodio($serie, "Episódio 1", 1);
 
 $calculadora = new CalculadoraDeMaratona();
 $calculadora->inclui($filme);
 $calculadora->inclui($serie);
-
 echo "Duração total da maratona: " . $calculadora->duracao() . " minutos\n";
+
+$conversor = new ConversorNotaEstrela();
+echo "Média do série em estrelas: " . $conversor->converte($serie) . " estrelas\n";
+echo "Media filme em estrelas: " . $conversor->converte($filme) . "\n";
