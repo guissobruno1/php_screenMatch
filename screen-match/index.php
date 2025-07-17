@@ -1,14 +1,18 @@
 <?php
 
-require __DIR__ . "/src/Model/ComAvaliacao.php";
-require __DIR__ . "/src/Model/Avaliavel.php";
-require __DIR__ . "/src/Model/Episodio.php";
-require __DIR__ . "/src/Model/Genero.php";
-require __DIR__ . "/src/Model/Titulo.php";
-require __DIR__ . "/src/Model/Serie.php";
-require __DIR__ . "/src/Model/Filme.php";
-require __DIR__ . "/src/Calculadora/CalculadoraDeMaratona.php";
-require __DIR__ . "/src/Calculadora/ConversorNotaEstrela.php";
+require_once __DIR__ . "/autoload.php";
+
+use ScreenMatch\Model\{
+    Filme,
+    Serie,
+    Genero,
+    Episodio,
+};
+
+use ScreenMatch\Calculadora\{
+    CalculadoraDeMaratona,
+    ConversorNotaEstrela,
+};
 
 echo "Bem vindo(a) ao Screen Match!\n";
 

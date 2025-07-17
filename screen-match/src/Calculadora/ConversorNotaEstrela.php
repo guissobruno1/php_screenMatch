@@ -1,11 +1,22 @@
 <?php
 
+namespace ScreenMatch\Calculadora;
+
+use DivisionByZeroError;
+use ScreenMatch\Model\Avaliavel;
+
 class ConversorNotaEstrela
 {
     public function converte(Avaliavel $avaliavel): float
     {
-        $nota = $avaliavel->media();
+        try
+        {
+            $nota = $avaliavel->media();
 
-        return round($nota) / 2;
+            return round($nota) / 2;
+        } catch(DivisionByZeroError $error)
+        {
+            return 0;
+        }
     }
 }
